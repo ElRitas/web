@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1060" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    
+    <!-- Actors -->
+    <mxCell id="actor1" value="Житель ЖК" style="shape=umlActor;" vertex="1" parent="1">
+      <mxGeometry x="50" y="100" width="50" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="actor2" value="Администратор ЖК" style="shape=umlActor;" vertex="1" parent="1">
+      <mxGeometry x="50" y="300" width="50" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="actor3" value="Система оплаты" style="shape=umlActor;" vertex="1" parent="1">
+      <mxGeometry x="600" y="100" width="50" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="actor4" value="Контрольный пункт выезда" style="shape=umlActor;" vertex="1" parent="1">
+      <mxGeometry x="600" y="300" width="50" height="100" as="geometry" />
+    </mxCell>
+    
+    <!-- Use Cases -->
+    <mxCell id="usecase1" value="Бронирование места" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="250" y="100" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="usecase2" value="Оплата парковки" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="250" y="180" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="usecase3" value="Просмотр доступных мест" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="250" y="260" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="usecase4" value="Въезд/выезд" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="250" y="340" width="140" height="60" as="geometry" />
+    </mxCell>
+    
+    <!-- Admin Use Cases -->
+    <mxCell id="usecase5" value="Управление местами" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="250" y="420" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="usecase6" value="Мониторинг парковки" style="ellipse;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="250" y="500" width="140" height="60" as="geometry" />
+    </mxCell>
+    
+    <!-- Connections -->
+    <mxCell id="edge1" edge="1" parent="1" source="actor1" target="usecase1" style="edgeStyle=elbowEdgeStyle;" />
+    <mxCell id="edge2" edge="1" parent="1" source="actor1" target="usecase2" style="edgeStyle=elbowEdgeStyle;" />
+    <mxCell id="edge3" edge="1" parent="1" source="actor1" target="usecase3" style="edgeStyle=elbowEdgeStyle;" />
+    <mxCell id="edge4" edge="1" parent="1" source="actor1" target="usecase4" style="edgeStyle=elbowEdgeStyle;" />
+    <mxCell id="edge5" edge="1" parent="1" source="actor2" target="usecase5" style="edgeStyle=elbowEdgeStyle;" />
+    <mxCell id="edge6" edge="1" parent="1" source="actor2" target="usecase6" style="edgeStyle=elbowEdgeStyle;" />
+    <mxCell id="edge7" edge="1" parent="1" source="actor3" target="usecase2" style="edgeStyle=elbowEdgeStyle;" />
+    <mxCell id="edge8" edge="1" parent="1" source="actor4" target="usecase4" style="edgeStyle=elbowEdgeStyle;" />
+  </root>
+</mxGraphModel>
