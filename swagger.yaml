@@ -1,0 +1,629 @@
+openapi: 3.0.3
+info:
+  title: Parking Reservation API
+  description: API для системы бронирования парковочных мест
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+
+servers:
+  - url: http://localhost:8080
+    description: Development server
+  - url: https://api.example.com
+    description: Production server
+
+paths:
+  /admin/reservations:
+    get:
+      tags:
+        - Admin
+      summary: Получить все бронирования
+      description: Возвращает список всех бронирований в системе
+      responses:
+        '200':
+          description: Успешное получение списка бронирований
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /admin/reservation/by-slot:
+    post:
+      tags:
+        - Admin
+      summary: Получить бронирование по слоту
+      description: Поиск бронирования по адресу и номеру парковочного места
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - address
+                - number
+              properties:
+                address:
+                  type: string
+                  description: Адрес парковки
+                  example: "ул. Ленина, д. 1"
+                number:
+                  type: integer
+                  description: Номер парковочного места
+                  example: 15
+      responses:
+        '200':
+          description: Бронирование найдено
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Бронирование не найдено
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /checkpoint/pass:
+    post:
+      tags:
+        - Checkpoint
+      summary: Проход через КПП
+      description: Проверка и регистрация прохода через контрольно-пропускной пункт
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - address
+                - checkpoint
+                - fio
+              properties:
+                address:
+                  type: string
+                  description: Адрес парковки
+                  example: "ул. Ленина, д. 1"
+                checkpoint:
+                  type: string
+                  description: Идентификатор КПП
+                  example: "checkpoint_1"
+                fio:
+                  type: string
+                  description: ФИО человека
+                  example: "Иванов Иван Иванович"
+      responses:
+        '200':
+          description: Результат проверки прохода
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  passed:
+                    type: boolean
+                    description: Результат проверки (true/false)
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /reservation/create:
+    post:
+      tags:
+        - Reservation
+      summary: Создать бронирование
+      description: Создание нового бронирования парковочного места
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - residential
+                - number
+                - transportNumber
+                - transportModel
+              properties:
+                residential:
+                  type: string
+                  description: Жилой комплекс
+                  example: "ЖК Центральный"
+                number:
+                  type: integer
+                  description: Номер парковочного места
+                  example: 25
+                transportNumber:
+                  type: string
+                  description: Номер транспортного средства
+                  example: "А123БВ78"
+                transportModel:
+                  type: string
+                  description: Модель транспортного средства
+                  example: "Toyota Camry"
+      responses:
+        '200':
+          description: Бронирование успешно создано
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Reservation created"
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reservation/status:
+    patch:
+      tags:
+        - Reservation
+      summary: Изменить статус бронирования
+      description: Изменение статуса бронирования парковочного места (активно/заморожено)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - slotId
+                - status
+              properties:
+                slotId:
+                  type: string
+                  description: Id парковочного места
+                  example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+                status:
+                  type: string
+                  description: Статус парковочного места
+                  example: "FROZEN"
+      responses:
+        '200':
+          description: Статус успешно изменен
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Reservation status changed"
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reservation/get:
+    get:
+      tags:
+        - Reservation
+      summary: Получить список всех броней
+      description: Получить список всех броней мест для одного ЖК
+      responses:
+        '200':
+          description: Статус успешно изменен
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - residential
+                    - number
+                    - transportNumber
+                    - transportModel
+                  properties:
+                    residential:
+                      type: string
+                      description: Жилой комплекс
+                      example: "ЖК Центральный"
+                    number:
+                      type: integer
+                      description: Номер парковочного места
+                      example: 25
+                    transportNumber:
+                      type: string
+                      description: Номер транспортного средства
+                      example: "А123БВ78"
+                    transportModel:
+                      type: string
+                      description: Модель транспортного средства
+                      example: "Toyota Camry"
+        '404':
+          description: Брони не найдены
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reservation/cancel:
+    delete:
+      tags:
+        - Reservation
+      summary: Отменить бронирование
+      description: Отмена существующего бронирования
+      parameters:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - number
+                - model
+              properties:
+                number:
+                  type: string
+                  description: Номер транспортного средства
+                  example: "А123БВ78"
+                model:
+                  type: string
+                  description: Модель транспортного средства
+                  example: "Toyota Camry"
+      responses:
+        '200':
+          description: Бронирование успешно отменено
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Reservation cancelled"
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /transport/add:
+    post:
+      tags:
+        - Transport
+      summary: Добавить транспортное средство
+      description: Добавление нового транспортного средства для пользователя
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+                - id
+                - number
+                - model
+                - color
+                - insurance
+              properties:
+                userId:
+                  type: string
+                  description: ID пользователя
+                  example: "user_123"
+                id:
+                  type: string
+                  description: ID транспортного средства
+                  example: "transport_456"
+                number:
+                  type: string
+                  description: Номер транспортного средства
+                  example: "А123БВ78"
+                model:
+                  type: string
+                  description: Модель транспортного средства
+                  example: "Toyota Camry"
+                color:
+                  type: string
+                  description: Цвет транспортного средства
+                  example: "Красный"
+                insurance:
+                  type: boolean
+                  description: Наличие страховки
+                  example: true
+      responses:
+        '200':
+          description: Транспортное средство успешно добавлено
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Transport added"
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /transport/get:
+    get:
+      tags:
+        - Transport
+      summary: Получить информацию о транспортном средстве
+      description: Получение информации о транспортном средстве по номеру и модели
+      parameters:
+        - name: number
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Номер транспортного средства
+          example: "А123БВ78"
+        - name: model
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Модель транспортного средства
+          example: "Toyota Camry"
+      responses:
+        '200':
+          description: Информация о транспортном средстве
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transport'
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Транспортное средство не найдено
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /user/register:
+    post:
+      tags:
+        - User
+      summary: Регистрация пользователя
+      description: Регистрация нового пользователя в системе
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+                - password
+                - address
+              properties:
+                name:
+                  type: string
+                  description: ФИО пользователя
+                  example: "Иванов Иван Иванович"
+                email:
+                  type: string
+                  format: email
+                  description: Email пользователя
+                  example: "ivanov@example.com"
+                password:
+                  type: string
+                  format: password
+                  description: Пароль пользователя
+                  example: "securepassword123"
+                address:
+                  type: string
+                  description: Адрес проживания
+                  example: "ул. Ленина, д. 1, кв. 5"
+      responses:
+        '200':
+          description: Пользователь успешно зарегистрирован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Ошибка регистрации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /user/guest:
+    post:
+      tags:
+        - User
+      summary: Добавить гостя
+      description: Добавление гостя в систему
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Гость успешно добавлен
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Guest added"
+        '500':
+          description: Ошибка добавления гостя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /user/authorize:
+    post:
+      tags:
+        - User
+      summary: Авторизация пользователя
+      description: Авторизация пользователя по email и паролю
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: Email пользователя
+                  example: "ivanov@example.com"
+                password:
+                  type: string
+                  format: password
+                  description: Пароль пользователя
+                  example: "securepassword123"
+      responses:
+        '200':
+          description: Успешная авторизация
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Неверные учетные данные
+        '500':
+          description: Ошибка авторизации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        fio:
+          type: string
+          description: ФИО пользователя
+        email:
+          type: string
+          format: email
+          description: Email пользователя
+        password:
+          type: string
+          format: password
+          description: Пароль пользователя
+        residentialId:
+          type: string
+          description: ID жилого комплекса
+        role:
+          type: string
+          enum: [RESIDENT, GUEST, ADMIN]
+          description: Роль пользователя
+
+    Transport:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID транспортного средства
+        number:
+          type: string
+          description: Номер транспортного средства
+        model:
+          type: string
+          description: Модель транспортного средства
+        color:
+          type: string
+          description: Цвет транспортного средства
+        insurance:
+          type: boolean
+          description: Наличие страховки
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Сообщение об ошибке
+        code:
+          type: integer
+          description: Код ошибки
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
