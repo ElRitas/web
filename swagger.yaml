@@ -233,12 +233,69 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /reservation/get:
+  /reservation:
     get:
       tags:
         - Reservation
       summary: Получить список всех броней
       description: Получить список всех броней мест для одного ЖК
+      responses:
+        '200':
+          description: Статус успешно изменен
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - residential
+                    - number
+                    - transportNumber
+                    - transportModel
+                  properties:
+                    residential:
+                      type: string
+                      description: Жилой комплекс
+                      example: "ЖК Центральный"
+                    number:
+                      type: integer
+                      description: Номер парковочного места
+                      example: 25
+                    transportNumber:
+                      type: string
+                      description: Номер транспортного средства
+                      example: "А123БВ78"
+                    transportModel:
+                      type: string
+                      description: Модель транспортного средства
+                      example: "Toyota Camry"
+        '404':
+          description: Брони не найдены
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reservation/{id}:
+    get:
+      tags:
+        - Reservation
+      summary: Получить бронь по ID
+      description: Получить информацию о конкретном бронировании по его идентификатору
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID бронирования
+          example: 'f47ac10b-58cc-4372-a567-0e02b2c3d479'
       responses:
         '200':
           description: Статус успешно изменен
@@ -288,7 +345,7 @@ paths:
         - Reservation
       summary: Отменить бронирование
       description: Отмена существующего бронирования
-      parameters:
+      requestBody:
         required: true
         content:
           application/json:
