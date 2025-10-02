@@ -14,21 +14,34 @@ servers:
     description: Production server
 
 paths:
-  /admin/reservations:
-    get:
+  /checkpoints:
+    post:
       tags:
-        - Admin
-      summary: Получить все бронирования
-      description: Возвращает список всех бронирований в системе
+        - Checkpoint
+      summary: Список всех КПП
+      description: Получение списка всех КПП для текущего ЖК
       responses:
         '200':
-          description: Успешное получение списка бронирований
+          description: Список КПП успешно получен
           content:
             application/json:
               schema:
                 type: array
                 items:
                   type: object
+                  properties:
+                    id:
+                      type: string
+                      description: ID КПП
+                      example: "checkpoint_1"
+                    number:
+                      type: string
+                      description: Номер КПП
+                      example: "1А"
+                    status:
+                      type: string
+                      description: Статус активности КПП
+                      example: "ACTIVE"
         '500':
           description: Внутренняя ошибка сервера
           content:
@@ -36,53 +49,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /admin/reservation/by-slot:
-    post:
-      tags:
-        - Admin
-      summary: Получить бронирование по слоту
-      description: Поиск бронирования по адресу и номеру парковочного места
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - address
-                - number
-              properties:
-                address:
-                  type: string
-                  description: Адрес парковки
-                  example: "ул. Ленина, д. 1"
-                number:
-                  type: integer
-                  description: Номер парковочного места
-                  example: 15
-      responses:
-        '200':
-          description: Бронирование найдено
-          content:
-            application/json:
-              schema:
-                type: object
-        '400':
-          description: Неверные параметры запроса
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '404':
-          description: Бронирование не найдено
-        '500':
-          description: Внутренняя ошибка сервера
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-
-  /checkpoint/pass:
+  /checkpoints/pass:
     post:
       tags:
         - Checkpoint
@@ -135,7 +102,86 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /reservation/create:
+  /slots:
+    get:
+      tags:
+        - Slot
+      summary: Список всех мест
+      description: Получение списка всех парковочных мест для текущего ЖК
+      responses:
+        '200':
+          description: Список мест успешно получен
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: ID места
+                      example: "slot_1"
+                    number:
+                      type: integer
+                      description: Номер места
+                      example: 52
+                    status:
+                      type: string
+                      description: Статус места (занято или нет)
+                      example: "FREE"
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /slots/add:
+    post:
+      tags:
+        - Slot
+      summary: Добавление нового места
+      description: Добавление нового парковочного места
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - residentialName
+                - residentialAddress
+                - slotNumber
+              properties:
+                residentialName:
+                  type: string
+                  description: Название ЖК
+                  example: "Лесные леса"
+                residentialAddress:
+                  type: string
+                  description: Адрес ЖК
+                  example: "Ленина, 84"
+                slotNumber:
+                  type: integer
+                  description: "Номер парковочного места"
+                  example: 52
+      responses:
+        '204':
+          description: Место успешно добавлено
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /reservations/create:
     post:
       tags:
         - Reservation
@@ -189,7 +235,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /reservation/status:
+  /reservations/status:
     patch:
       tags:
         - Reservation
@@ -233,7 +279,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /reservation:
+  /reservations/get:
     get:
       tags:
         - Reservation
@@ -282,64 +328,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /reservation/{id}:
-    get:
-      tags:
-        - Reservation
-      summary: Получить бронь по ID
-      description: Получить информацию о конкретном бронировании по его идентификатору
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-          description: ID бронирования
-          example: 'f47ac10b-58cc-4372-a567-0e02b2c3d479'
-      responses:
-        '200':
-          description: Статус успешно изменен
-          content:
-            text/plain:
-              schema:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - residential
-                    - number
-                    - transportNumber
-                    - transportModel
-                  properties:
-                    residential:
-                      type: string
-                      description: Жилой комплекс
-                      example: "ЖК Центральный"
-                    number:
-                      type: integer
-                      description: Номер парковочного места
-                      example: 25
-                    transportNumber:
-                      type: string
-                      description: Номер транспортного средства
-                      example: "А123БВ78"
-                    transportModel:
-                      type: string
-                      description: Модель транспортного средства
-                      example: "Toyota Camry"
-        '404':
-          description: Брони не найдены
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Внутренняя ошибка сервера
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /reservation/cancel:
+  /reservations/cancel:
     delete:
       tags:
         - Reservation
@@ -622,7 +611,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+  
 components:
   schemas:
     User:
