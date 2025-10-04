@@ -10,12 +10,12 @@ info:
 servers:
   - url: http://localhost:8080
     description: Development server
-  - url: https://api.example.com
+  - url: https://api/v2.example.com
     description: Production server
 
 paths:
-  /checkpoints:
-    post:
+  /api/v2/checkpoints:
+    get:
       tags:
         - Checkpoint
       summary: Список всех КПП
@@ -26,22 +26,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      description: ID КПП
-                      example: "checkpoint_1"
-                    number:
-                      type: string
-                      description: Номер КПП
-                      example: "1А"
-                    status:
-                      type: string
-                      description: Статус активности КПП
-                      example: "ACTIVE"
+                type: object
+                properties:
+                  checkpoints:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: ID КПП
+                          example: "checkpoint_1"
+                        number:
+                          type: string
+                          description: Номер КПП
+                          example: "1А"
+                        status:
+                          type: string
+                          description: Статус активности КПП
+                          example: "ACTIVE"
         '500':
           description: Внутренняя ошибка сервера
           content:
@@ -49,7 +52,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /checkpoints/pass:
+  /api/v2/checkpoints/{id}/pass/:
     post:
       tags:
         - Checkpoint
@@ -62,18 +65,8 @@ paths:
             schema:
               type: object
               required:
-                - address
-                - checkpoint
                 - fio
               properties:
-                address:
-                  type: string
-                  description: Адрес парковки
-                  example: "ул. Ленина, д. 1"
-                checkpoint:
-                  type: string
-                  description: Идентификатор КПП
-                  example: "checkpoint_1"
                 fio:
                   type: string
                   description: ФИО человека
@@ -102,7 +95,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /slots:
+  /api/v2/slots:
     get:
       tags:
         - Slot
@@ -114,29 +107,31 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      description: ID места
-                      example: "slot_1"
-                    number:
-                      type: integer
-                      description: Номер места
-                      example: 52
-                    status:
-                      type: string
-                      description: Статус места (занято или нет)
-                      example: "FREE"
+                type: object
+                properties:
+                  slots:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: ID места
+                          example: "slot_1"
+                        number:
+                          type: integer
+                          description: Номер места
+                          example: 52
+                        status:
+                          type: string
+                          description: Статус места (занято или нет)
+                          example: "FREE"
         '500':
           description: Внутренняя ошибка сервера
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /slots/add:
     post:
       tags:
         - Slot
@@ -149,25 +144,29 @@ paths:
             schema:
               type: object
               required:
-                - residentialName
-                - residentialAddress
+                - residentialId
                 - slotNumber
               properties:
-                residentialName:
+                residentialId:
                   type: string
-                  description: Название ЖК
-                  example: "Лесные леса"
-                residentialAddress:
-                  type: string
-                  description: Адрес ЖК
-                  example: "Ленина, 84"
+                  description: ID жилого комплекса
+                  example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
                 slotNumber:
                   type: integer
                   description: "Номер парковочного места"
                   example: 52
       responses:
-        '204':
+        '201':
           description: Место успешно добавлено
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  slotId:
+                    type: string
+                    description: ID места
+                    example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
         '400':
           description: Неверные параметры запроса
           content:
@@ -181,7 +180,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /reservations/create:
+  /api/v2/reservations/:
     post:
       tags:
         - Reservation
@@ -196,25 +195,20 @@ paths:
               required:
                 - residential
                 - number
-                - transportNumber
-                - transportModel
+                - transportId
               properties:
                 residential:
                   type: string
                   description: Жилой комплекс
-                  example: "ЖК Центральный"
+                  example: "ЖК anus"
                 number:
                   type: integer
                   description: Номер парковочного места
-                  example: 25
-                transportNumber:
+                  example: 67
+                transportId:
                   type: string
-                  description: Номер транспортного средства
-                  example: "А123БВ78"
-                transportModel:
-                  type: string
-                  description: Модель транспортного средства
-                  example: "Toyota Camry"
+                  description: ID транспорта
+                  example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
       responses:
         '200':
           description: Бронирование успешно создано
@@ -235,51 +229,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /reservations/status:
-    patch:
-      tags:
-        - Reservation
-      summary: Изменить статус бронирования
-      description: Изменение статуса бронирования парковочного места (активно/заморожено)
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - slotId
-                - status
-              properties:
-                slotId:
-                  type: string
-                  description: Id парковочного места
-                  example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
-                status:
-                  type: string
-                  description: Статус парковочного места
-                  example: "FROZEN"
-      responses:
-        '200':
-          description: Статус успешно изменен
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "Reservation status changed"
-        '400':
-          description: Неверные параметры запроса
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Внутренняя ошибка сервера
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /reservations/get:
+
     get:
       tags:
         - Reservation
@@ -291,31 +241,34 @@ paths:
           content:
             text/plain:
               schema:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - residential
-                    - number
-                    - transportNumber
-                    - transportModel
-                  properties:
-                    residential:
-                      type: string
-                      description: Жилой комплекс
-                      example: "ЖК Центральный"
-                    number:
-                      type: integer
-                      description: Номер парковочного места
-                      example: 25
-                    transportNumber:
-                      type: string
-                      description: Номер транспортного средства
-                      example: "А123БВ78"
-                    transportModel:
-                      type: string
-                      description: Модель транспортного средства
-                      example: "Toyota Camry"
+                type: object
+                properties:
+                  reservations:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - residential
+                        - number
+                        - transportNumber
+                        - transportModel
+                      properties:
+                        residential:
+                          type: string
+                          description: Жилой комплекс
+                          example: "ЖК Центральный"
+                        number:
+                          type: integer
+                          description: Номер парковочного места
+                          example: 25
+                        transportNumber:
+                          type: string
+                          description: Номер транспортного средства
+                          example: "А123БВ78"
+                        transportModel:
+                          type: string
+                          description: Модель транспортного средства
+                          example: "Toyota Camry"
         '404':
           description: Брони не найдены
           content:
@@ -328,7 +281,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /reservations/cancel:
+
     delete:
       tags:
         - Reservation
@@ -373,7 +326,47 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /transport/add:
+  /api/v2/reservations/{id}/status:
+    patch:
+      tags:
+        - Reservation
+      summary: Изменить статус бронирования
+      description: Изменение статуса бронирования парковочного места (активно/заморожено)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  description: Статус парковочного места
+                  example: "FROZEN"
+      responses:
+        '200':
+          description: Статус успешно изменен
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Reservation status changed"
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/v2/transport/:
     post:
       tags:
         - Transport
@@ -387,7 +380,6 @@ paths:
               type: object
               required:
                 - userId
-                - id
                 - number
                 - model
                 - color
@@ -397,10 +389,6 @@ paths:
                   type: string
                   description: ID пользователя
                   example: "user_123"
-                id:
-                  type: string
-                  description: ID транспортного средства
-                  example: "transport_456"
                 number:
                   type: string
                   description: Номер транспортного средства
@@ -437,8 +425,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
-  /transport/get:
+  /api/v2/transport/{id}:
     get:
       tags:
         - Transport
@@ -481,7 +468,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /user/register:
+    delete:
+      tags:
+        - Transport
+      summary: Удаление транспортного средства
+      description: Удаление транспортного средства
+      responses:
+        '204':
+            description: Транспорт успешно удален
+            content:
+              application/json:
+                schema:
+                  type: string
+                  example: "Транспорт удален"
+        '400':
+          description: Неверные параметры запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/v2/users/register:
     post:
       tags:
         - User
@@ -523,7 +530,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                required:
+                  - token
+                properties:
+                  token:
+                    type: string
+                    description: JWT токен
+                    example: "jwt"
         '400':
           description: Неверные параметры запроса
           content:
@@ -537,7 +551,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /user/guest:
+  /api/v2/users/guest:
     post:
       tags:
         - User
@@ -548,7 +562,30 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              type: object
+              required:
+                - fio
+                - email
+                - password
+                - userId
+              properties:
+                fio:
+                  type: string
+                  description: ФИО
+                  example: "Иванов Иван Иванович"
+                email:
+                  type: string
+                  description: Адрес электронной почты
+                  example: "test@test.ru"
+                password:
+                  type: string
+                  description: Пароль
+                  example: "12345678"
+                userId:
+                  type: string
+                  description: ID пользователя который добавил
+                  example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+
       responses:
         '200':
           description: Гость успешно добавлен
@@ -564,7 +601,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /user/authorize:
+  /api/v2/users/authorize:
     post:
       tags:
         - User
@@ -596,7 +633,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                required:
+                  - token
+                properties:
+                  token:
+                    type: string
+                    description: JWT токен
+                    example: "jwt"
         '400':
           description: Неверные параметры запроса
           content:
@@ -639,9 +683,6 @@ components:
     Transport:
       type: object
       properties:
-        id:
-          type: string
-          description: ID транспортного средства
         number:
           type: string
           description: Номер транспортного средства
