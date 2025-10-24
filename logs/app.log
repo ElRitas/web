@@ -249,3 +249,23 @@ errors.RepositoryException$NotFoundException: User with email 'nisu@example.com'
 2025-10-23 19:08:39 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
 2025-10-23 19:08:39 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
 2025-10-23 19:08:39 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-10-24 09:14:20 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-24 09:14:20 [main] INFO  ktor.application - Application started in 0.281 seconds.
+2025-10-24 09:14:20 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-24 09:15:44 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-24 09:15:44 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-24 09:15:44 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-10-24 09:16:38 [eventLoopGroupProxy-4-8] ERROR ktor.application - Unhandled: GET - /api/v2/reservations
+errors.RepositoryException$NotFoundException: Checkpoints not found
+	at repositories.v2.DBReservationRepositoryV2$getAll$reservations$1.invoke(DBReservationRepositoryV2.kt:102)
+	at repositories.v2.DBReservationRepositoryV2$getAll$reservations$1.invoke(DBReservationRepositoryV2.kt:85)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-24 09:17:10 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserTransportRepository - Adding user transport: UserTransport(id=70fcd01a-5999-46a6-a6fb-8fe6ba0ea4cf, userId=a3f27541-46e2-4b00-93f9-cfc78ce388d6, transportId=6b2a532e-e4f7-4d8f-a058-91a8089bbe7a)

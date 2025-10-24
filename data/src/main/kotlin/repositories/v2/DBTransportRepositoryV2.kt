@@ -115,7 +115,7 @@ class DBTransportRepositoryV2 : TransportRepositoryV2 {
                     val resultSet = statement.executeQuery()
                     if (resultSet.next()) {
                         val total = resultSet.getString("count").toInt()
-                        (total + min(total, count) - 1) / count
+                        (total + min(total, count) - 1) / min(total, count)
                     } else {
                         throw RepositoryException.NotFoundException(
                             "No slots found"

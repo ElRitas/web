@@ -101,3 +101,13 @@ INSERT INTO checkpoints(guard_fio, guard_phone, residential_id, "number", status
 	VALUES ('Майклов Майкл Майклович', '+79998887766',
 	(select id from residentials where name = 'Пчелкино'),
 	'1Б', 'OK');
+
+INSERT INTO slots(residential_id, "number", status)
+VALUES ((SELECT id from residentials WHERE name = 'Пчелкино'),
+1, 'FREE'
+);
+
+INSERT INTO slots(residential_id, "number", status)
+VALUES ((SELECT id from residentials WHERE name = 'Пчелкино'),
+2, 'FREE'
+);
