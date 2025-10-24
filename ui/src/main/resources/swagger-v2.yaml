@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Parking Reservation API
   description: API для системы бронирования парковочных мест
-  version: 1.0.0
+  version: 2.0.0
   contact:
     name: API Support
     email: support@example.com
@@ -10,8 +10,8 @@ info:
 servers:
   - url: http://localhost:8080
     description: Development server
-  - url: https://api/v2.example.com
-    description: Production server
+  - url: http://localhost:8181
+    description: Nginx server
 
 paths:
   /api/v2/checkpoints:
@@ -20,6 +20,25 @@ paths:
         - Checkpoint
       summary: Список всех КПП
       description: Получение списка всех КПП для текущего ЖК
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: pagesNum
+          in: query
+          required: false
+          description: Номер страницы (начинается с 1)
+          schema:
+            type: integer
+            default: 1
+            example: 1
+        - name: elemCount
+          in: query
+          required: false
+          description: количество элементов на странице
+          schema:
+            type: integer
+            default: 5
+            example: 5
       responses:
         '200':
           description: Список КПП успешно получен
@@ -45,6 +64,17 @@ paths:
                           type: string
                           description: Статус активности КПП
                           example: "ACTIVE"
+                  pagination:
+                    type: object
+                    properties:
+                      totalPages:
+                        type: integer
+                        description: total pages
+                        example: 0
+                      curPage:
+                        type: integer
+                        description: current page
+                        example: 0
         '500':
           description: Внутренняя ошибка сервера
           content:
@@ -52,25 +82,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /api/v2/checkpoints/{id}/pass/:
+  /api/v2/checkpoints/{id}/pass:
     post:
       tags:
         - Checkpoint
       summary: Проход через КПП
       description: Проверка и регистрация прохода через контрольно-пропускной пункт
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - fio
-              properties:
-                fio:
-                  type: string
-                  description: ФИО человека
-                  example: "Иванов Иван Иванович"
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID контрольно-пропускного пункта
       responses:
         '200':
           description: Результат проверки прохода
@@ -101,6 +127,25 @@ paths:
         - Slot
       summary: Список всех мест
       description: Получение списка всех парковочных мест для текущего ЖК
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: pagesNum
+          in: query
+          required: false
+          description: Номер страницы (начинается с 1)
+          schema:
+            type: integer
+            default: 1
+            example: 1
+        - name: elemCount
+          in: query
+          required: false
+          description: количество элементов на странице
+          schema:
+            type: integer
+            default: 5
+            example: 5
       responses:
         '200':
           description: Список мест успешно получен
@@ -126,6 +171,17 @@ paths:
                           type: string
                           description: Статус места (занято или нет)
                           example: "FREE"
+                  pagination:
+                    type: object
+                    properties:
+                      totalPages:
+                        type: integer
+                        description: total pages
+                        example: 0
+                      curPage:
+                        type: integer
+                        description: current page
+                        example: 0
         '500':
           description: Внутренняя ошибка сервера
           content:
@@ -137,6 +193,8 @@ paths:
         - Slot
       summary: Добавление нового места
       description: Добавление нового парковочного места
+      security:
+        - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -180,12 +238,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /api/v2/reservations/:
+  /api/v2/reservations:
     post:
       tags:
         - Reservation
       summary: Создать бронирование
       description: Создание нового бронирования парковочного места
+      security:
+        - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -193,22 +253,17 @@ paths:
             schema:
               type: object
               required:
-                - residential
-                - number
+                - slotId
                 - transportId
               properties:
-                residential:
+                slotId:
                   type: string
-                  description: Жилой комплекс
-                  example: "ЖК anus"
-                number:
-                  type: integer
-                  description: Номер парковочного места
-                  example: 67
+                  description: ID транспорта
+                  example: "id"
                 transportId:
                   type: string
                   description: ID транспорта
-                  example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+                  example: "id"
       responses:
         '200':
           description: Бронирование успешно создано
@@ -235,11 +290,30 @@ paths:
         - Reservation
       summary: Получить список всех броней
       description: Получить список всех броней мест для одного ЖК
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: pagesNum
+          in: query
+          required: false
+          description: Номер страницы (начинается с 1)
+          schema:
+            type: integer
+            default: 1
+            example: 1
+        - name: elemCount
+          in: query
+          required: false
+          description: количество элементов на странице
+          schema:
+            type: integer
+            default: 5
+            example: 5
       responses:
         '200':
           description: Статус успешно изменен
           content:
-            text/plain:
+            application/json:
               schema:
                 type: object
                 properties:
@@ -247,16 +321,11 @@ paths:
                     type: array
                     items:
                       type: object
-                      required:
-                        - residential
-                        - number
-                        - transportNumber
-                        - transportModel
                       properties:
-                        residential:
+                        id:
                           type: string
-                          description: Жилой комплекс
-                          example: "ЖК Центральный"
+                          description: ID
+                          example: "id"
                         number:
                           type: integer
                           description: Номер парковочного места
@@ -269,6 +338,17 @@ paths:
                           type: string
                           description: Модель транспортного средства
                           example: "Toyota Camry"
+                  pagination:
+                    type: object
+                    properties:
+                      totalPages:
+                        type: integer
+                        description: total pages
+                        example: 0
+                      curPage:
+                        type: integer
+                        description: current page
+                        example: 0
         '404':
           description: Брони не найдены
           content:
@@ -281,30 +361,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+  /api/v2/reservations/{id}:
     delete:
       tags:
         - Reservation
       summary: Отменить бронирование
       description: Отмена существующего бронирования
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - number
-                - model
-              properties:
-                number:
-                  type: string
-                  description: Номер транспортного средства
-                  example: "А123БВ78"
-                model:
-                  type: string
-                  description: Модель транспортного средства
-                  example: "Toyota Camry"
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID брони
       responses:
         '200':
           description: Бронирование успешно отменено
@@ -325,13 +396,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
   /api/v2/reservations/{id}/status:
     patch:
       tags:
         - Reservation
       summary: Изменить статус бронирования
       description: Изменение статуса бронирования парковочного места (активно/заморожено)
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID брони
       requestBody:
         required: true
         content:
@@ -366,12 +445,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /api/v2/transport/:
+  /api/v2/transport:
     post:
       tags:
         - Transport
       summary: Добавить транспортное средство
       description: Добавление нового транспортного средства для пользователя
+      security:
+        - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -379,16 +460,11 @@ paths:
             schema:
               type: object
               required:
-                - userId
                 - number
                 - model
                 - color
                 - insurance
               properties:
-                userId:
-                  type: string
-                  description: ID пользователя
-                  example: "user_123"
                 number:
                   type: string
                   description: Номер транспортного средства
@@ -425,34 +501,74 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /api/v2/transport/{id}:
     get:
       tags:
         - Transport
-      summary: Получить информацию о транспортном средстве
-      description: Получение информации о транспортном средстве по номеру и модели
+      summary: Получить информацию о транспортных средствах
+      description: Получение информации о транспортных средствах
+      security:
+        - BearerAuth: []
       parameters:
-        - name: number
+        - name: pagesNum
           in: query
-          required: true
+          required: false
+          description: Номер страницы (начинается с 1)
           schema:
-            type: string
-          description: Номер транспортного средства
-          example: "А123БВ78"
-        - name: model
+            type: integer
+            default: 1
+            example: 1
+        - name: elemCount
           in: query
-          required: true
+          required: false
+          description: количество элементов на странице
           schema:
-            type: string
-          description: Модель транспортного средства
-          example: "Toyota Camry"
+            type: integer
+            default: 5
+            example: 5
       responses:
         '200':
-          description: Информация о транспортном средстве
+          description: Список транспорта успешно получен
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transport'
+                type: object
+                properties:
+                  transport:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: ID
+                          example: "id"
+                        number:
+                          type: string
+                          description: Номер транспортного средства
+                          example: "А123БВ78"
+                        model:
+                          type: string
+                          description: Модель транспортного средства
+                          example: "Toyota Camry"
+                        color:
+                          type: string
+                          description: Цвет транспортного средства
+                          example: "Красный"
+                        insurance:
+                          type: boolean
+                          description: Наличие страховки
+                          example: true
+                  pagination:
+                    type: object
+                    properties:
+                      totalPages:
+                        type: integer
+                        description: total pages
+                        example: 0
+                      curPage:
+                        type: integer
+                        description: current page
+                        example: 0
         '400':
           description: Неверные параметры запроса
           content:
@@ -467,12 +583,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
+  /api/v2/transport/{id}:
     delete:
       tags:
         - Transport
       summary: Удаление транспортного средства
       description: Удаление транспортного средства
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID транспортного средства
       responses:
         '204':
             description: Транспорт успешно удален
@@ -557,6 +682,8 @@ paths:
         - User
       summary: Добавить гостя
       description: Добавление гостя в систему
+      security:
+        - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -567,7 +694,6 @@ paths:
                 - fio
                 - email
                 - password
-                - userId
               properties:
                 fio:
                   type: string
@@ -581,13 +707,9 @@ paths:
                   type: string
                   description: Пароль
                   example: "12345678"
-                userId:
-                  type: string
-                  description: ID пользователя который добавил
-                  example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 
       responses:
-        '200':
+        '201':
           description: Гость успешно добавлен
           content:
             text/plain:
@@ -621,12 +743,12 @@ paths:
                   type: string
                   format: email
                   description: Email пользователя
-                  example: "ivanov@example.com"
+                  example: "nisu@example.com"
                 password:
                   type: string
                   format: password
                   description: Пароль пользователя
-                  example: "securepassword123"
+                  example: "123123123"
       responses:
         '200':
           description: Успешная авторизация
@@ -707,10 +829,7 @@ components:
           description: Код ошибки
 
   securitySchemes:
-    bearerAuth:
+    BearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
-
-security:
-  - bearerAuth: []

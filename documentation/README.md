@@ -25,23 +25,23 @@
 
 ## Use-Case - диаграмма
 
-![Use-case](static/img/use-case.drawio.png)
+![Use-case](img/use-case.drawio.png)
 
 ## ER-диаграмма сущностей
-![ER](static/img/ER.png)
+![ER](img/ER.png)
 
 ## Диаграмма БД
-![DB](static/img/ER-DB.png)
+![DB](img/ER-DB.png)
 
 ## BPMN-диаграммы
 ### Бронирование парковочного места
-![bpmn1](static/img/image-1.png)
+![bpmn1](img/image-1.png)
 
 ### Проезд через КПП
-![bpmn2](static/img/image-2.png)
+![bpmn2](img/image-2.png)
 
 ### Добавление в список гостей
-![bpmn3](static/img/image-3.png)
+![bpmn3](img/image-3.png)
 
 ## Технологический стек
 - ЯП Kotlin
@@ -51,30 +51,30 @@
 
 ## Верхнеуровневое разбиение на компоненты
 
-![components](static/img/comps.png)
+![components](img/comps.png)
 
 ## Диаграмма классов
 
-![uml](static/img/uml.png)
+![uml](img/uml.png)
 
 ## Будущие экраны приложения
 
 ### Экран входа
-![scr1](static/img/screen-1.jpg)
+![scr1](img/screen-1.jpg)
 
 ### Экран регистрации
-![scr2](static/img/screen-2.png)
+![scr2](img/screen-2.png)
 
 ### Экран бронирования для жильца
-![scr3](static/img/screen-3.jpg)
+![scr3](img/screen-3.jpg)
 
 ### Экран добавления гостя
-![scr4](static/img/screen-4.jpg)
+![scr4](img/screen-4.jpg)
 
 ### Экран гостя
-![scr5](static/img/screen-5.jpg)
+![scr5](img/screen-5.jpg)
 
 ### Экраны админа
-![scr6](static/img/screen-6.png)
-![scr7](static/img/screen-7.png)
-![scr8](static/img/screen-8.png)
+![scr6](img/screen-6.png)
+![scr7](img/screen-7.png)
+![scr8](img/screen-8.png)
