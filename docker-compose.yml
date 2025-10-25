@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    restart: always
+
+    environment:
+      POSTGRES_DB: andrejtrohan
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./ui/src/main/resources/tables.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    networks:
+      - p_network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: parking_pgadmin
+    ports:
+      - "9999:80"
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@parking.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-1234}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    depends_on:
+      - postgres
+    volumes:
+      - ./docker/data/pgadmin/servers.json:/pgadmin4/servers.json
+    networks:
+      - p_network
+
+  adminer:
+    image: adminer
+    container_name: parking_adminer
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    networks:
+      - p_network
+
+  parking-api:
+    build:
+      context: .
+      dockerfile: ./docker/api.Dockerfile
+    container_name: parking-api
+    environment:
+      - DB_URL=jdbc:postgresql://postgres:5432/andrejtrohan
+      - DB_USER=postgres
+      - DB_PASSWORD=123
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./logs:/app/logs"
+    depends_on:
+      - postgres
+    networks:
+      - p_network
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  parking-nginx:
+    container_name: parking-nginx
+    image: nginx:alpine
+    restart: always
+    depends_on:
+      - parking-api
+      - adminer
+      - pgadmin
+    ports:
+      - "8181:8181"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./static:/parking/static
+    networks: 
+      - p_network
+
+volumes:
+  postgres_data:
+    
+networks: 
+  p_network:
+    driver: bridge

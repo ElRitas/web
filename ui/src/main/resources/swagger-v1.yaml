@@ -1,0 +1,486 @@
+openapi: 3.0.3
+info:
+  title: Parking Management API
+  description: API for managing parking reservations, transport, users and checkpoint operations
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080
+    description: Development server
+  - url: http://localhost:8181
+    description: Nginx server
+
+paths:
+  /api/v1/admin/reservations:
+    get:
+      summary: Get all reservations
+      tags:
+        - Admin
+      responses:
+        '200':
+          description: Successfully retrieved all reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Failed to fetch reservations: Database error"
+
+  /api/v1/admin/reservation/by-slot:
+    post:
+      summary: Get reservation by parking slot
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - address
+                - number
+              properties:
+                address:
+                  type: string
+                  description: Parking address
+                number:
+                  type: integer
+                  description: Slot number
+      responses:
+        '200':
+          description: Reservation found
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid parameters
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing or invalid parameters"
+        '404':
+          description: Reservation not found
+        '500':
+          description: Internal server error
+
+  /api/v1/checkpoint/pass:
+    post:
+      summary: Pass checkpoint
+      tags:
+        - Checkpoint
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - address
+                - checkpoint
+                - fio
+              properties:
+                address:
+                  type: string
+                  description: Parking address
+                checkpoint:
+                  type: string
+                  description: Checkpoint identifier
+                fio:
+                  type: string
+                  description: Full name of the person
+      responses:
+        '200':
+          description: Checkpoint pass result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  passed:
+                    type: boolean
+        '400':
+          description: Missing parameters
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing parameters"
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Failed to process checkpoint pass: Service error"
+
+  /api/v1/reservation/create:
+    post:
+      summary: Create a new reservation
+      tags:
+        - Reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - residential
+                - number
+                - transportNumber
+                - transportModel
+              properties:
+                residential:
+                  type: string
+                  description: Residential identifier
+                number:
+                  type: integer
+                  description: Parking slot number
+                transportNumber:
+                  type: string
+                  description: Vehicle registration number
+                transportModel:
+                  type: string
+                  description: Vehicle model
+      responses:
+        '200':
+          description: Reservation created successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Reservation created"
+        '400':
+          description: Missing required parameters
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing residential"
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Failed to create reservation: Database error"
+
+  /api/v1/reservation/cancel:
+    delete:
+      summary: Cancel a reservation
+      tags:
+        - Reservation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - number
+                - model
+              properties:
+                number:
+                  type: string
+                  description: Vehicle registration number
+                model:
+                  type: string
+                  description: Vehicle model
+      responses:
+        '200':
+          description: Reservation cancelled successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Reservation cancelled"
+        '400':
+          description: Missing required parameters
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing name"
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Failed to cancel reservation: Service error"
+
+  /api/v1/transport/add:
+    post:
+      summary: Add transport for user
+      tags:
+        - Transport
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+                - id
+                - number
+                - model
+                - color
+                - insurance
+              properties:
+                userId:
+                  type: string
+                  description: User identifier
+                id:
+                  type: string
+                  description: Transport identifier
+                number:
+                  type: string
+                  description: Vehicle registration number
+                model:
+                  type: string
+                  description: Vehicle model
+                color:
+                  type: string
+                  description: Vehicle color
+                insurance:
+                  type: boolean
+                  description: Insurance status
+      responses:
+        '200':
+          description: Transport added successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Transport added"
+        '400':
+          description: Missing required parameters
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing userId"
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Failed to add transport: Database error"
+
+  /api/v1/transport/get:
+    get:
+      summary: Get transport by number and model
+      tags:
+        - Transport
+      parameters:
+        - name: number
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Vehicle registration number
+        - name: model
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Vehicle model
+      responses:
+        '200':
+          description: Transport found
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing transport information
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing transport info"
+        '404':
+          description: Transport not found
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Not found"
+        '500':
+          description: Internal server error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Failed to retrieve transport: Service error"
+
+  /api/v1/user/register:
+    post:
+      summary: Register a new user
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+                - password
+                - address
+              properties:
+                name:
+                  type: string
+                  description: Full name of the user
+                email:
+                  type: string
+                  format: email
+                  description: User email
+                password:
+                  type: string
+                  format: password
+                  description: User password
+                address:
+                  type: string
+                  description: Residential address
+      responses:
+        '200':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing required parameters
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing name"
+        '500':
+          description: Registration failed
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Registration failed: User already exists"
+
+  /api/v1/user/guest:
+    post:
+      summary: Add a guest user
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fio:
+                  type: string
+                  description: Full name
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password
+                residentialId:
+                  type: string
+                role:
+                  type: string
+                  enum: [RESIDENT, GUEST, ADMIN]
+      responses:
+        '200':
+          description: Guest added successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Guest added"
+        '500':
+          description: Guest adding failed
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Guest adding failed: Service error"
+
+  /api/v1/user/authorize:
+    post:
+      summary: Authorize user
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                  description: User email
+                password:
+                  type: string
+                  format: password
+                  description: User password
+      responses:
+        '200':
+          description: Authorization successful
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing credentials
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Missing email"
+        '401':
+          description: Invalid credentials
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Invalid credentials"
+        '500':
+          description: Authorization failed
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Authorization failed: Service error"
+
+tags:
+  - name: User
+    description: User management operations
+  - name: Transport
+    description: Vehicle management operations
+  - name: Reservation
+    description: Parking reservation operations
+  - name: Admin
+    description: Administrative operations
+  - name: Checkpoint
+    description: Checkpoint passing operations
