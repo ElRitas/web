@@ -1,0 +1,929 @@
+2025-10-23 16:46:32 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 16:46:32 [main] INFO  ktor.application - Application started in 0.245 seconds.
+2025-10-23 16:46:32 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 16:50:25 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to register new user: f@example.com
+2025-10-23 16:50:25 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to register new user: f@example.com
+2025-10-23 16:50:25 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBResidentialRepository - Retrieving residential ID by address: f
+2025-10-23 16:50:25 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Adding new user: User(id=e7abae28-dc98-48c1-8dad-6a6533c6ab58, fio=f f f, email=f@example.com, password=ffffffff, residentialId=5683c651-e5d8-4144-a7a7-e03655f549b3, role=RESIDENT)
+2025-10-23 16:50:25 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Start adding
+2025-10-23 16:50:25 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - User added successfully with id=e7abae28-dc98-48c1-8dad-6a6533c6ab58
+2025-10-23 16:50:25 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Super good success
+2025-10-23 16:50:25 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - User f f f registered successfully
+2025-10-23 16:50:25 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - User f f f registered successfully
+2025-10-23 17:01:03 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:01:03 [main] INFO  ktor.application - Application started in 0.22 seconds.
+2025-10-23 17:01:03 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:03:54 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:03:54 [main] INFO  ktor.application - Application started in 0.214 seconds.
+2025-10-23 17:03:54 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:04:30 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:04:30 [main] INFO  ktor.application - Application started in 0.204 seconds.
+2025-10-23 17:04:30 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:04:46 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 17:04:46 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 17:04:46 [eventLoopGroupProxy-4-2] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-10-23 17:04:46 [DefaultDispatcher-worker-1] WARN  repositories.v1.DBUserRepository - No user found for email='nisu@example.com' or wrong password
+2025-10-23 17:04:46 [eventLoopGroupProxy-4-2] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 17:04:46 [eventLoopGroupProxy-4-2] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 17:04:46 [eventLoopGroupProxy-4-2] ERROR ktor.application - Unhandled: POST - /api/v2/users/authorize
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 17:28:25 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:28:25 [main] INFO  ktor.application - Application started in 0.225 seconds.
+2025-10-23 17:28:25 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:34:04 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to register new user: f@example.com
+2025-10-23 17:34:04 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to register new user: f@example.com
+2025-10-23 17:34:04 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBResidentialRepository - Retrieving residential ID by address: f
+2025-10-23 17:34:04 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBUserRepository - Adding new user: User(id=2d6210b1-a6ef-47ce-9fd0-5fb605bb74e4, fio=f f f, email=f@example.com, password=ffffffff, residentialId=f49a0df9-fd71-4064-8660-d65e19c3202a, role=RESIDENT)
+2025-10-23 17:34:04 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Start adding
+2025-10-23 17:34:04 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - User added successfully with id=2d6210b1-a6ef-47ce-9fd0-5fb605bb74e4
+2025-10-23 17:34:04 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Super good success
+2025-10-23 17:34:04 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - User f f f registered successfully
+2025-10-23 17:34:04 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - User f f f registered successfully
+2025-10-23 17:34:57 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:34:57 [main] INFO  ktor.application - Application started in 0.31 seconds.
+2025-10-23 17:34:58 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:35:57 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:35:58 [main] INFO  ktor.application - Application started in 0.211 seconds.
+2025-10-23 17:35:58 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:40:35 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:40:36 [main] INFO  ktor.application - Application started in 0.228 seconds.
+2025-10-23 17:40:36 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:45:46 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:45:46 [main] INFO  ktor.application - Application started in 0.305 seconds.
+2025-10-23 17:45:46 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:47:03 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:47:03 [main] INFO  ktor.application - Application started in 0.595 seconds.
+2025-10-23 17:47:04 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:53:54 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 17:53:54 [main] INFO  ktor.application - Application started in 0.234 seconds.
+2025-10-23 17:53:54 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 17:56:25 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: user@example.com
+2025-10-23 17:56:25 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: user@example.com
+2025-10-23 17:56:25 [eventLoopGroupProxy-4-2] ERROR servicesV1.UserService - Invalid password format for email: user@example.com
+2025-10-23 17:56:25 [eventLoopGroupProxy-4-2] ERROR servicesV1.UserService - Invalid password format for email: user@example.com
+2025-10-23 17:58:20 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 17:58:20 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 17:58:20 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-10-23 17:58:20 [DefaultDispatcher-worker-1] WARN  repositories.v1.DBUserRepository - No user found for email='nisu@example.com' or wrong password
+2025-10-23 17:58:20 [eventLoopGroupProxy-4-4] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 17:58:20 [eventLoopGroupProxy-4-4] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 17:58:20 [eventLoopGroupProxy-4-4] ERROR ktor.application - Unhandled: POST - /api/v2/users/authorize
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 18:03:57 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 18:03:58 [main] INFO  ktor.application - Application started in 0.216 seconds.
+2025-10-23 18:03:58 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 18:06:19 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to register new user: user@example.com
+2025-10-23 18:06:19 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to register new user: user@example.com
+2025-10-23 18:06:19 [eventLoopGroupProxy-4-2] INFO  repositories.v1.DBResidentialRepository - Retrieving residential ID by address: string
+2025-10-23 18:06:19 [DefaultDispatcher-worker-1] WARN  repositories.v1.DBResidentialRepository - No residential found for address=string
+2025-10-23 18:06:19 [eventLoopGroupProxy-4-2] ERROR servicesV1.UserService - Error registering user user@example.com
+errors.RepositoryException$NotFoundException: Residential with address=string not found
+	at repositories.v1.DBResidentialRepository$getResidentialIdByAddress$2.invoke(DBResidentialRepository.kt:105)
+	at repositories.v1.DBResidentialRepository$getResidentialIdByAddress$2.invoke(DBResidentialRepository.kt:93)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 18:06:19 [eventLoopGroupProxy-4-2] ERROR servicesV1.UserService - Error registering user user@example.com
+errors.RepositoryException$NotFoundException: Residential with address=string not found
+	at repositories.v1.DBResidentialRepository$getResidentialIdByAddress$2.invoke(DBResidentialRepository.kt:105)
+	at repositories.v1.DBResidentialRepository$getResidentialIdByAddress$2.invoke(DBResidentialRepository.kt:93)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 18:06:19 [eventLoopGroupProxy-4-2] ERROR ktor.application - Unhandled: POST - /api/v1/user/register
+errors.RepositoryException$NotFoundException: Residential with address=string not found
+	at repositories.v1.DBResidentialRepository$getResidentialIdByAddress$2.invoke(DBResidentialRepository.kt:105)
+	at repositories.v1.DBResidentialRepository$getResidentialIdByAddress$2.invoke(DBResidentialRepository.kt:93)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 18:12:50 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 18:12:50 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 18:12:50 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-10-23 18:12:50 [DefaultDispatcher-worker-1] WARN  repositories.v1.DBUserRepository - No user found for email='nisu@example.com' or wrong password
+2025-10-23 18:12:50 [eventLoopGroupProxy-4-3] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 18:12:50 [eventLoopGroupProxy-4-3] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 18:12:50 [eventLoopGroupProxy-4-3] ERROR ktor.application - Unhandled: POST - /api/v2/users/authorize
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-23 18:21:22 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 18:21:22 [main] INFO  ktor.application - Application started in 0.29 seconds.
+2025-10-23 18:21:22 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 18:22:34 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 18:22:34 [main] INFO  ktor.application - Application started in 0.315 seconds.
+2025-10-23 18:22:34 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 18:24:36 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 18:24:36 [main] INFO  ktor.application - Application started in 0.259 seconds.
+2025-10-23 18:24:37 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 18:29:53 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 18:29:53 [main] INFO  ktor.application - Application started in 0.233 seconds.
+2025-10-23 18:29:53 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 18:32:11 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 18:32:11 [main] INFO  ktor.application - Application started in 0.247 seconds.
+2025-10-23 18:32:11 [DefaultDispatcher-worker-2] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 19:07:34 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-23 19:07:34 [main] INFO  ktor.application - Application started in 0.23 seconds.
+2025-10-23 19:07:34 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-23 19:08:39 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 19:08:39 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-23 19:08:39 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-10-24 09:14:20 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-10-24 09:14:20 [main] INFO  ktor.application - Application started in 0.281 seconds.
+2025-10-24 09:14:20 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-10-24 09:15:44 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-24 09:15:44 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-10-24 09:15:44 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-10-24 09:16:38 [eventLoopGroupProxy-4-8] ERROR ktor.application - Unhandled: GET - /api/v2/reservations
+errors.RepositoryException$NotFoundException: Checkpoints not found
+	at repositories.v2.DBReservationRepositoryV2$getAll$reservations$1.invoke(DBReservationRepositoryV2.kt:102)
+	at repositories.v2.DBReservationRepositoryV2$getAll$reservations$1.invoke(DBReservationRepositoryV2.kt:85)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-10-24 09:17:10 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserTransportRepository - Adding user transport: UserTransport(id=70fcd01a-5999-46a6-a6fb-8fe6ba0ea4cf, userId=a3f27541-46e2-4b00-93f9-cfc78ce388d6, transportId=6b2a532e-e4f7-4d8f-a058-91a8089bbe7a)
+2025-11-26 21:14:40 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-11-26 21:14:41 [main] INFO  ktor.application - Application started in 0.257 seconds.
+2025-11-26 21:14:41 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-11-26 21:15:16 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-26 21:15:16 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-26 21:15:16 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 19:49:21 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-11-27 19:49:22 [main] INFO  ktor.application - Application started in 0.274 seconds.
+2025-11-27 19:49:22 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-11-27 19:49:32 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 19:49:32 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 19:49:32 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 19:49:44 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 19:49:44 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 19:49:44 [eventLoopGroupProxy-4-2] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 19:59:02 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 19:59:02 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 19:59:02 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 20:05:13 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:05:13 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:05:13 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 20:05:13 [DefaultDispatcher-worker-1] WARN  repositories.v1.DBUserRepository - No user found for email='nisu@example.com' or wrong password
+2025-11-27 20:05:13 [eventLoopGroupProxy-4-4] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-27 20:05:13 [eventLoopGroupProxy-4-4] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-27 20:05:13 [eventLoopGroupProxy-4-4] ERROR ktor.application - Unhandled: POST - /api/v2/users/authorize
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-27 20:05:47 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:05:47 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:05:47 [eventLoopGroupProxy-4-5] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 20:05:47 [DefaultDispatcher-worker-1] WARN  repositories.v1.DBUserRepository - No user found for email='nisu@example.com' or wrong password
+2025-11-27 20:05:47 [eventLoopGroupProxy-4-5] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-27 20:05:47 [eventLoopGroupProxy-4-5] ERROR servicesV1.UserService - Error authorizing user with email: nisu@example.com
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-27 20:05:47 [eventLoopGroupProxy-4-5] ERROR ktor.application - Unhandled: POST - /api/v2/users/authorize
+errors.RepositoryException$NotFoundException: User with email 'nisu@example.com' not found or wrong password
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:108)
+	at repositories.v1.DBUserRepository$getUserByEmailPassword$2.invoke(DBUserRepository.kt:95)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-27 20:06:57 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:06:57 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:06:57 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 20:11:57 [eventLoopGroupProxy-4-7] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:11:57 [eventLoopGroupProxy-4-7] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 20:11:57 [eventLoopGroupProxy-4-7] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 22:19:02 [eventLoopGroupProxy-4-8] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:19:02 [eventLoopGroupProxy-4-8] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:19:02 [eventLoopGroupProxy-4-8] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 22:19:38 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:19:38 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:19:38 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 22:26:07 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:26:07 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:26:07 [eventLoopGroupProxy-4-2] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 22:31:37 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:31:37 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 22:31:37 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 23:26:14 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: web@mail.ru
+2025-11-27 23:26:14 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: web@mail.ru
+2025-11-27 23:26:14 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBUserRepository - Retrieving user by email='web@mail.ru' and password
+2025-11-27 23:44:38 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 23:44:38 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 23:44:38 [eventLoopGroupProxy-4-5] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 23:45:23 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to add new guest user: misha@mail.ru
+2025-11-27 23:45:23 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to add new guest user: misha@mail.ru
+2025-11-27 23:45:23 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Adding new user: User(id=d642b054-fb40-4deb-bf98-5d21906cdbe5, fio=Михайлов Михаил Михайлович, email=misha@mail.ru, password=123123123, residentialId=59144760-fed6-4456-a846-6e955d8aab7a, role=GUEST)
+2025-11-27 23:45:23 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Start adding
+2025-11-27 23:45:23 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - User added successfully with id=d642b054-fb40-4deb-bf98-5d21906cdbe5
+2025-11-27 23:45:23 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Super good success
+2025-11-27 23:45:23 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Guest user misha@mail.ru added successfully
+2025-11-27 23:45:23 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Guest user misha@mail.ru added successfully
+2025-11-27 23:52:02 [eventLoopGroupProxy-4-7] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 23:52:02 [eventLoopGroupProxy-4-7] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 23:52:02 [eventLoopGroupProxy-4-7] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-27 23:58:10 [eventLoopGroupProxy-4-8] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 23:58:10 [eventLoopGroupProxy-4-8] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-27 23:58:10 [eventLoopGroupProxy-4-8] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 00:04:51 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to add new guest user: 
+2025-11-28 00:04:51 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to add new guest user: 
+2025-11-28 00:04:51 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Adding new user: User(id=22eb9764-0937-40be-852a-32c858b72eb4, fio=, email=, password=, residentialId=59144760-fed6-4456-a846-6e955d8aab7a, role=GUEST)
+2025-11-28 00:04:51 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Start adding
+2025-11-28 00:04:51 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - User added successfully with id=22eb9764-0937-40be-852a-32c858b72eb4
+2025-11-28 00:04:51 [DefaultDispatcher-worker-1] INFO  repositories.v1.DBUserRepository - Super good success
+2025-11-28 00:04:51 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Guest user  added successfully
+2025-11-28 00:04:51 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Guest user  added successfully
+2025-11-28 00:09:17 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-11-28 00:09:18 [main] INFO  ktor.application - Application started in 0.434 seconds.
+2025-11-28 00:09:18 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-11-28 10:07:11 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-11-28 10:07:12 [main] INFO  ktor.application - Application started in 0.289 seconds.
+2025-11-28 10:07:12 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-11-28 10:07:47 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 10:07:47 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 10:07:47 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 12:44:09 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 12:44:09 [eventLoopGroupProxy-4-2] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 12:44:09 [eventLoopGroupProxy-4-2] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 12:45:32 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 12:45:32 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 12:45:32 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 12:52:50 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBUserTransportRepository - Adding user transport: UserTransport(id=4c45f737-46ba-4e30-8d7d-c23576c786c7, userId=59b06c4d-4a1e-4246-be12-9640fc4dac27, transportId=d72768f6-55dd-4413-86fb-1825aaa053b6)
+2025-11-28 13:15:46 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: web@mail.ru
+2025-11-28 13:15:46 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: web@mail.ru
+2025-11-28 13:15:46 [eventLoopGroupProxy-4-5] INFO  repositories.v1.DBUserRepository - Retrieving user by email='web@mail.ru' and password
+2025-11-28 13:17:24 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 13:17:24 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 13:17:24 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 13:18:16 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: web@mail.ru
+2025-11-28 13:18:16 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: web@mail.ru
+2025-11-28 13:18:16 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='web@mail.ru' and password
+2025-11-28 13:22:02 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 13:22:02 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 13:22:02 [eventLoopGroupProxy-4-5] INFO  repositories.v1.DBUserRepository - Retrieving user by email='admin@mail.ru' and password
+2025-11-28 14:03:51 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 14:03:51 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 14:03:51 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 14:13:58 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 14:13:58 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 14:13:58 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Retrieving user by email='admin@mail.ru' and password
+2025-11-28 14:23:07 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 14:23:07 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 14:23:07 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 14:23:47 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 14:23:47 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 14:23:47 [eventLoopGroupProxy-4-5] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 15:19:29 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 15:19:29 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 15:19:29 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Retrieving user by email='admin@mail.ru' and password
+2025-11-28 15:20:17 [eventLoopGroupProxy-4-8] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 15:20:17 [eventLoopGroupProxy-4-8] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 15:20:17 [eventLoopGroupProxy-4-8] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 15:25:33 [eventLoopGroupProxy-4-1] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:25:50 [eventLoopGroupProxy-4-2] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:26:01 [eventLoopGroupProxy-4-3] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:28:08 [eventLoopGroupProxy-4-4] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:28:42 [eventLoopGroupProxy-4-6] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:28:42 [eventLoopGroupProxy-4-5] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:32:04 [eventLoopGroupProxy-4-7] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:32:04 [eventLoopGroupProxy-4-8] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:34:09 [eventLoopGroupProxy-4-3] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:34:09 [eventLoopGroupProxy-4-2] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:36:54 [eventLoopGroupProxy-4-8] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:36:54 [eventLoopGroupProxy-4-1] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:39:04 [eventLoopGroupProxy-4-3] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:39:04 [eventLoopGroupProxy-4-2] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:31 [eventLoopGroupProxy-4-4] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:31 [eventLoopGroupProxy-4-5] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:35 [eventLoopGroupProxy-4-6] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:35 [eventLoopGroupProxy-4-7] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:39 [eventLoopGroupProxy-4-8] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:39 [eventLoopGroupProxy-4-1] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:42 [eventLoopGroupProxy-4-2] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:40:42 [eventLoopGroupProxy-4-3] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:41:18 [eventLoopGroupProxy-4-5] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:41:18 [eventLoopGroupProxy-4-4] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:41:29 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 15:41:29 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 15:41:29 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 15:41:36 [eventLoopGroupProxy-4-1] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:41:36 [eventLoopGroupProxy-4-8] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:42:52 [eventLoopGroupProxy-4-3] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:42:52 [eventLoopGroupProxy-4-2] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:46:55 [eventLoopGroupProxy-4-7] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 15:46:55 [eventLoopGroupProxy-4-7] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 15:46:55 [eventLoopGroupProxy-4-7] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 15:46:57 [eventLoopGroupProxy-4-1] ERROR ktor.application - Unhandled: GET - /api/v2/slots
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:80)
+	at repositories.v2.DBSlotRepositoryV2$getSlots$slots$1.invoke(DBSlotRepositoryV2.kt:59)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:46:57 [eventLoopGroupProxy-4-8] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:48:17 [eventLoopGroupProxy-4-3] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NoDataAccessException: Database error while retrieving slot: ERROR: OFFSET must not be negative
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:103)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 15:56:27 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 15:56:27 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to authorize user with email: admin@mail.ru
+2025-11-28 15:56:27 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Retrieving user by email='admin@mail.ru' and password
+2025-11-28 16:03:21 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-11-28 16:03:22 [main] INFO  ktor.application - Application started in 0.309 seconds.
+2025-11-28 16:03:22 [DefaultDispatcher-worker-2] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-11-28 16:05:09 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 16:05:09 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-28 16:05:09 [eventLoopGroupProxy-4-5] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-28 16:05:10 [eventLoopGroupProxy-4-7] ERROR ktor.application - Unhandled: GET - /api/v2/transport
+errors.RepositoryException$NotFoundException: Transport not found, HikariProxyPreparedStatement@2017895536 wrapping SELECT t.* FROM transport t
+JOIN user_transport ut ON ut.transport_id = t.id
+WHERE ut.user_id = ('5b28c4ef-1e28-447f-b46e-e047ac48f6a1'::uuid)
+LIMIT ('10'::int4) OFFSET ('0'::int4)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:98)
+	at repositories.v2.DBTransportRepositoryV2$getAll$slots$1.invoke(DBTransportRepositoryV2.kt:81)
+	at DatabaseFactory$dbQuery$2.invokeSuspend(DatabaseFactory.kt:35)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2025-11-28 16:08:12 [eventLoopGroupProxy-4-8] INFO  repositories.v1.DBUserTransportRepository - Adding user transport: UserTransport(id=c401ddfb-4c26-408d-955c-b547f76bb98e, userId=5b28c4ef-1e28-447f-b46e-e047ac48f6a1, transportId=14c2d086-cddb-439f-a7ad-b46e8fcadc1e)
+2025-11-28 16:22:35 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-11-28 16:22:36 [main] INFO  ktor.application - Application started in 0.279 seconds.
+2025-11-28 16:22:36 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-11-29 09:01:01 [main] INFO  ktor.application - Autoreload is disabled because the development mode is off.
+2025-11-29 09:01:01 [main] INFO  ktor.application - Application started in 0.311 seconds.
+2025-11-29 09:01:01 [DefaultDispatcher-worker-1] INFO  ktor.application - Responding at http://0.0.0.0:8080
+2025-11-29 09:03:53 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-29 09:03:53 [eventLoopGroupProxy-4-1] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-29 09:03:53 [eventLoopGroupProxy-4-1] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-11-29 09:04:33 [eventLoopGroupProxy-4-2] INFO  repositories.v1.DBUserTransportRepository - Adding user transport: UserTransport(id=ff9cda42-c38f-4224-9ffa-61c66418638d, userId=5b28c4ef-1e28-447f-b46e-e047ac48f6a1, transportId=5c90e52c-22b1-4143-a3ad-6a958d01dcd3)
+2025-11-29 09:06:06 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to add new guest user: guest@mail.ru
+2025-11-29 09:06:06 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Attempting to add new guest user: guest@mail.ru
+2025-11-29 09:06:06 [eventLoopGroupProxy-4-3] INFO  repositories.v1.DBUserRepository - Adding new user: User(id=9b03783b-4b2c-41e2-a8a4-a31216594043, fio=Г Г Г, email=guest@mail.ru, password=123123123, residentialId=2652ea93-b21f-4ae1-9766-7267522be2b4, role=GUEST)
+2025-11-29 09:06:06 [DefaultDispatcher-worker-2] INFO  repositories.v1.DBUserRepository - Start adding
+2025-11-29 09:06:06 [DefaultDispatcher-worker-2] INFO  repositories.v1.DBUserRepository - User added successfully with id=9b03783b-4b2c-41e2-a8a4-a31216594043
+2025-11-29 09:06:06 [DefaultDispatcher-worker-2] INFO  repositories.v1.DBUserRepository - Super good success
+2025-11-29 09:06:06 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Guest user guest@mail.ru added successfully
+2025-11-29 09:06:06 [eventLoopGroupProxy-4-3] INFO  servicesV1.UserService - Guest user guest@mail.ru added successfully
+2025-11-29 09:06:21 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: guest@mail.ru
+2025-11-29 09:06:21 [eventLoopGroupProxy-4-4] INFO  servicesV1.UserService - Attempting to authorize user with email: guest@mail.ru
+2025-11-29 09:06:21 [eventLoopGroupProxy-4-4] INFO  repositories.v1.DBUserRepository - Retrieving user by email='guest@mail.ru' and password
+2025-11-29 09:09:17 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-29 09:09:17 [eventLoopGroupProxy-4-5] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-11-29 09:09:17 [eventLoopGroupProxy-4-5] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password
+2025-12-01 11:20:25 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-12-01 11:20:25 [eventLoopGroupProxy-4-6] INFO  servicesV1.UserService - Attempting to authorize user with email: nisu@example.com
+2025-12-01 11:20:25 [eventLoopGroupProxy-4-6] INFO  repositories.v1.DBUserRepository - Retrieving user by email='nisu@example.com' and password

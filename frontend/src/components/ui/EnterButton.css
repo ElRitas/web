@@ -1,0 +1,28 @@
+.enter-button {
+  border: 2px solid #3e1b0c;
+  width: 300px;
+  height: 70px;
+  border-radius: 50px;
+  background-color: #5d3c26;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.enter-button:hover {
+  background-color: #4a2f1d;
+}
+
+.enter-button .button-text {
+  color: #ffffff;
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-normal);
+  line-height: var(--line-height-normal);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
